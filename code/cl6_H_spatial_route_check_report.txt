@@ -1,0 +1,112 @@
+========================================================================
+  ℍ SPATIAL ROUTE CHECK — closing the quaternion escape
+  CentralizerUnification_Consolidation.md §5
+========================================================================
+
+  --- CHECK A: su(2)_L closure [L_a, L_b] = 2 eps_{abc} L_c ---
+    [L_i, L_j] - 2*+1*L_k : residual = 0.00e+00
+    [L_i, L_k] - 2*-1*L_j : residual = 0.00e+00
+    [L_j, L_k] - 2*+1*L_i : residual = 0.00e+00
+  su(2)_L closes: max residual = 0.00e+00 PASS
+
+  --- CHECK B: su(2)_R closure [R_a, R_b] = -2 eps_{abc} R_c ---
+    [R_i, R_j] + 2*+1*R_k : residual = 0.00e+00
+    [R_i, R_k] + 2*-1*R_j : residual = 0.00e+00
+    [R_j, R_k] + 2*+1*R_i : residual = 0.00e+00
+  su(2)_R closes: max residual = 0.00e+00 PASS
+  (S_a = -R_a/2 satisfies [S_a, S_b] = eps_abc S_c — genuine su(2))
+
+  --- CHECK C: Cross-commutativity [L_a, R_b] = 0 (all 9 pairs) ---
+  max ||[L_a, R_b]|| over all 9 pairs = 0.00e+00 PASS (commute)
+  Interpretation: SU(2)_L and SU(2)_R are INDEPENDENT — one does
+  not obstruct the other's action. The centralizer of su(2)_L
+  therefore contains all of su(2)_R.
+
+  --- CHECK D: Centralizer of su(2)_L in span{L_a, R_b, I} ---
+  Centralizer dimension: 4  (expected 4 = su(2)_R + scalar)
+  Centralizer basis vectors (coefficients in [L_i,L_j,L_k,R_i,R_j,R_k,I]):
+    v_1: +1.0000·I
+    v_2: +1.0000·R_i
+    v_3: +1.0000·R_j
+    v_4: +1.0000·R_k
+  Max L_a component in centralizer vectors: 0.00e+00 PASS (no L_a content)
+  Centralizer of su(2)_L = span{R_i, R_j, R_k, I} = su(2)_R ⊕ ℝ CONFIRMED
+
+  --- CHECK E: su(2)_R is a genuine nonabelian internal su(2) ---
+  max ||[R_a, R_b]|| (a≠b) = 4.0000 (nonabelian)
+  su(2)_R closes (CHECK B: max residual 0.00e+00)
+  Verdict: su(2)_R is a genuine su(2) Lie algebra —
+    assigning it as spatial so(3) double-books spatial
+    rotation with internal SU(2)_R.
+
+  --- CHECK F: Centralizer of su(2)_L ⊕ su(2)_R in span{L_a,R_b,I} ---
+  Centralizer dimension: 1  (expected 1 = scalar only)
+  Centralizer basis vectors:
+    v_1: +1.0000·I
+  Identity component fraction: 1.000000 (is the scalar)
+  Centralizer of su(2)_L ⊕ su(2)_R = span{I} only: CONFIRMED
+  The identity (scalar) is NOT a rotation generator.
+  No non-trivial generator in the ℍ algebra commutes with
+  BOTH SU(2)_L and SU(2)_R simultaneously.
+
+========================================================================
+  SUMMARY AND VERDICT
+========================================================================
+
+  The ℍ factor of ℝ⊗ℂ⊗ℍ⊗𝕆 carries exactly two su(2) algebras:
+
+    su(2)_L = span{L_i/2, L_j/2, L_k/2}  (left multiplication)
+    su(2)_R = span{-R_i/2, -R_j/2, -R_k/2} (right multiplication)
+
+  These are the ONLY nonabelian Lie algebraic content of ℍ beyond
+  the real scalar I.
+
+  Key results (all verified above):
+
+  1. su(2)_L closes as su(2) ................................ PASS
+  2. su(2)_R closes as su(2) ................................ PASS
+  3. [L_a, R_b] = 0 (cross-commutativity) .................. PASS
+  4. Centralizer of su(2)_L = su(2)_R ⊕ ℝ (dim=4) ......... PASS
+  5. su(2)_R is nonabelian internal su(2) ................... PASS
+  6. Centralizer of su(2)_L ⊕ su(2)_R = span{I} (dim=1) .. PASS
+
+  SPATIAL DIRECTION IMPLICATION:
+
+  For a generator X in the ℍ algebra to serve as a spatial rotation
+  WITHOUT double-booking SU(2)_L, X must be in the centralizer of
+  su(2)_L = su(2)_R ⊕ ℝ  [Check D].
+
+  If X is assigned as spatial rotation so(3), it must ALSO not
+  double-book SU(2)_R. So X must be in the centralizer of
+  su(2)_L ⊕ su(2)_R = span{I} only  [Check F].
+
+  The scalar (identity) is not a rotation generator.
+
+  CONCLUSION: The ℍ spatial route is CLOSED.
+
+  Every non-scalar generator in ℍ double-books with either SU(2)_L
+  or SU(2)_R. This is the same partition-vs-double-booking dilemma
+  as the Cl(6) case, now on the ℍ factor:
+    - To avoid SU(2)_L double-booking: must use su(2)_R
+    - su(2)_R is itself an internal gauge symmetry
+    - No generator escapes both internal SU(2)'s simultaneously
+
+  Even if this algebraic obstruction were somehow circumvented,
+  the Coleman–Mandula theorem would apply independently: mixing
+  Poincaré spatial rotations with internal su(2)_R is forbidden for
+  a gapped interacting 4D theory, regardless of which tensor factor
+  the mixing occurs on.
+
+  OVERALL VERDICT: ALL CHECKS PASS — ℍ route closed.
+
+  The three-prong (3+1) no-go is now complete:
+    (i)  Partition kills su(3) color (Cl(6), dimension theorem)
+    (ii) Double-booking triggers C-M (Cl(6), centralizer)
+    (iii)Chain gives only 1+1 (multi-HSMI/ladder closure)
+    (iv) ℍ factor gives su(2)_L vs su(2)_R double-booking
+         (this check)
+
+  Under Stance 1, no clean route to (3+1) remains.
+  Stance 2 (imported spacetime + SU(2)_L on ℍ) is the
+  algebraically grounded fallback.
+========================================================================
