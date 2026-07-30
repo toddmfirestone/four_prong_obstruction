@@ -1,37 +1,31 @@
-\documentclass[11pt]{article}
+\documentclass[aip,jmp,amsmath,amssymb,reprint,author-year]{revtex4-2}
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage[round]{natbib}
 \usepackage{graphicx}
-\usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{bm}
 
+% Theorem environments defined without amsthm (revtex4-1 conflict)
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-}
+% proof environment (amsthm not loaded; revtex4-2 does not provide one)
+\newenvironment{proof}[1][Proof]{\par\noindent\textit{#1.}\space\ignorespaces}{\hfill$\square$\par\medskip}
+
+
+
+\begin{document}
 
 \title{A Four-Prong Obstruction to $(3{+}1)$-Dimensional Emergence
        from $\mathrm{Cl}(6)$}
-\author{Todd M.~Firestone\\
-        Independent Researcher}
-\date{June 2026}
 
-\begin{document}
-\maketitle
+\author{Todd M.~Firestone}
+\email{firestone.science@proton.me}
+\affiliation{Independent Researcher, United States}
 
-%======================================================================
-% ABSTRACT
-%======================================================================
+\date{\today}
+
 \begin{abstract}
 We prove that the $\mathrm{Cl}(6)$ bivector algebra $\mathfrak{so}(6)$,
 viewed as the internal symmetry algebra of a $\mathrm{Cl}(6)$-based
@@ -57,6 +51,8 @@ this remains open.  Under Stance~2, the centralizer theorem provides an
 algebraic justification for every import rather than a default assumption.
 \end{abstract}
 
+\maketitle
+
 %======================================================================
 % SECTION 1: INTRODUCTION
 %======================================================================
@@ -73,7 +69,6 @@ signature~\citep{C4consolidation}.  The $1{+}1$ result is established.
 The question addressed here is whether the same construction, or any
 algebraic extension of it within the same $\mathrm{Cl}(6)$ structure, can
 produce two additional spatial directions and recover $(3{+}1)$.
-% [ESTABLISHED]
 
 The $\mathrm{Cl}(6)$ bivector algebra is $\mathfrak{so}(6)$, of
 dimension~15.  Its maximal $\mathfrak{su}(3)$-color subalgebra occupies
@@ -120,7 +115,6 @@ inside $\mathfrak{so}(6) \cong \mathfrak{su}(4)$ goes back
 to~\citet{GunaydinGursey1973} and was elaborated
 by~\citet{Dixon1994}; the formulation used here
 follows~\citet{Furey2016}.
-% [INHERITED]
 The quaternion factor $\mathbb{H}$ acts on a four-dimensional real space
 ($\mathbb{H}$ as real vector space) via left and right multiplication;
 $\mathfrak{su}(2)_L = \operatorname{span}\{L_i/2, L_j/2, L_k/2\}$ and
@@ -146,7 +140,6 @@ H = B_{12} + B_{34} + B_{56} = \tfrac{3}{2}\,Q_{B\text{-}L}.
 \end{equation}
 No other bivector commutes with all eight color generators.
 \end{theorem}
-% [ESTABLISHED -- Schur argument below; corroborated in rep by cl6_su3_centralizer_check.py]
 
 \begin{proof}
 The result follows from Schur's lemma, basis-independently.  The
@@ -194,7 +187,6 @@ sectors---adjoint-$8$, centralizer-$1$, and coset-$(\mathbf{3} +
 \item No bivector lies purely in any single sector.
 \end{itemize}
 \end{lemma}
-% [ESTABLISHED -- projection argument below; corroborated in rep by cl6_spatial_direction_carving.py, Part A]
 
 The fractions in Lemma~\ref{lem:decomposition} are not numerical
 accidents.  The three-dimensional Cartan space
@@ -215,7 +207,6 @@ one commuting generator, or requiring a commuting generator free of
 $B$--$L$ charge, cannot be housed in the $\mathrm{Cl}(6)$ bivector
 algebra.
 \end{corollary}
-% [ESTABLISHED -- immediate from Theorem 1]
 
 %======================================================================
 % SECTION 3: FOUR CONSEQUENCES
@@ -237,14 +228,12 @@ in the unique color-neutral bivector.  The centralizer being
 one-dimensional explains why there is precisely one independent commuting
 $\mathrm{U}(1)$---not zero, not two.  Hypercharge takes that seat
 completely.
-% [ESTABLISHED]
 
 \subsection{Weak isospin $\mathrm{SU}(2)_L$---locked out of $\mathrm{Cl}(6)$ bivectors}
 
 $\mathrm{SU}(2)_L$ requires three generators commuting with
 $\mathfrak{su}(3)_{\mathrm{color}}$.  The centralizer has dimension one.
 Three independent generators cannot fit.
-% [ESTABLISHED]
 
 This provides the algebraic resolution of the B-2 finding from the
 Paper~3 adversarial referee review (June~2026): the corrected
@@ -278,7 +267,6 @@ Photons carry $B$--$L = 0$.  The contradiction is immediate: transverse
 polarization modes cannot be color-neutral within the $\mathrm{Cl}(6)$
 bivector algebra.  This is the algebraic half of the two-walls identity
 established in~\citep{TwoWalls}.
-% [ESTABLISHED -- B-L reductio; alignment corroborated in rep, cl6_su3_centralizer_check.py: 1.0000000000]
 
 \subsection{Summary}
 
@@ -335,7 +323,6 @@ partition of the six\/ $\mathrm{Cl}(6)$ directions into two spatial and
 four internal, $\mathfrak{su}(3)_{\mathrm{color}}$ cannot survive as a
 subalgebra of the residual internal bivector algebra.
 \end{theorem}
-% [ESTABLISHED -- basis-independent combinatorial proof; corroborated in rep for all cases, cl6_spatial_direction_carving.py]
 
 \begin{proof}
 The bivector count is purely combinatorial.  The dimension of
@@ -398,7 +385,6 @@ ground:
 
 The six internal directions are the only reservoir.  Either partition them
 or do not.  Each horn is fatal by a different mechanism.
-% [ESTABLISHED reasoning]
 
 %======================================================================
 % SECTION 5: THE QUATERNION SPATIAL ROUTE
@@ -442,7 +428,6 @@ The scalar identity $I$ is not a rotation generator.  Therefore no
 non-trivial generator in $\mathbb{H}$ commutes with both internal\/
 $\mathrm{SU}(2)$ factors.
 \end{theorem}
-% [ESTABLISHED -- forced by associativity of H; corroborated in rep, cl6_H_spatial_route_check.py, all 6 checks 0.00e+00]
 
 \begin{proof}
 Direct computation (script
@@ -518,7 +503,6 @@ is forbidden there as well, independently of the tensor factor on which
 the mixing occurs.  The algebraic obstruction does not need
 Coleman--Mandula; Coleman--Mandula is the backup that closes the same door
 at the level of the target theory~\citep{ColemanMandula1967}.
-% [ESTABLISHED reasoning]
 
 %======================================================================
 % SECTION 6: THE FOUR-PRONG NO-GO
@@ -536,7 +520,6 @@ algebraic construction admits no clean $(3{+}1)$-dimensional extension of
 the established $1{+}1$ sector.  Four independent obstructions hold
 simultaneously:
 \end{theorem}
-% [ESTABLISHED reasoning -- four-prong no-go complete]
 
 \noindent
 \textbf{(i) Partition kills $\mathfrak{su}(3)_{\mathrm{color}}$.}
@@ -544,8 +527,7 @@ Any designation of two of the six $\mathrm{Cl}(6)$ internal directions as
 spatial leaves a four-direction complement with bivector algebra
 $\mathfrak{so}(4)$, $\dim 6$, which is too small to house
 $\mathfrak{su}(3)$ ($\dim 8$).
-[Theorem~\ref{thm:partition}, \textsc{established}]
-% [Theorem 4, ESTABLISHED]
+[Theorem~\ref{thm:partition}]
 
 \medskip\noindent
 \textbf{(ii) Double-booking triggers Coleman--Mandula.}
@@ -570,7 +552,6 @@ the forced spatial-color sharing, so the target is unreachable under
 those hypotheses.  The escape is to void the hypotheses (Branch~A,
 Section~\ref{sec:survives}).
 \citep{ColemanMandula1967,HLS1975}.
-% [Theorem 1, ESTABLISHED; C-M invocation conditional]
 
 \medskip\noindent
 \textbf{(iii) The chain gives only $1{+}1$.}
@@ -585,7 +566,6 @@ discrete transverse quantum number (3 points, no continuum limit)---the
 transverse shift is a color permutation ($S_3$ Weyl element), not a
 spatial translation.
 \citep{MultiHSMI}.
-% [ESTABLISHED]
 
 \medskip\noindent
 \textbf{(iv) The $\mathbb{H}$ factor double-books.}
@@ -599,7 +579,6 @@ internal.  The centralizer of that full internal structure is
 $\operatorname{span}\{I\}$ (Theorem~\ref{thm:Hdilemma}), and the scalar
 $I$ is not a rotation generator; no spatial $\mathfrak{so}(3)$ can be
 sourced from~$\mathbb{H}$.
-% [Theorem 5, ESTABLISHED]
 
 \paragraph{Cross-tensor combinations.}
 A candidate spatial generator need not lie wholly within one tensor
@@ -635,7 +614,7 @@ The following items are verified at machine precision:
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{@{}p{5.5cm} l l@{}}
+\begin{tabular}{p{5.5cm} l l}
 \toprule
 Result & Script & Residual / value \\
 \midrule
@@ -735,7 +714,6 @@ rather than a local pointwise stress tensor in MZ's sense; whether the
 emergent IR genuinely lacks a unique local stress tensor is a property of
 the construction that has not been established here and is logged as
 open.
-% [OPEN/CONJECTURE]
 The dimensional escape does not depend on it.
 
 The genuine open question for Branch~A is whether a $d = 2$ analogue of
@@ -750,7 +728,6 @@ extension is attempted, collapsing Branch~A onto the dimensional escape
 alone; if it does not, the sub-escape stands as a second reinforcement.
 Either way the dimensional escape (the load-bearing defense) is
 unaffected.  Beta remains open.
-% [OPEN]
 
 A further constraint shapes what Branch~A's target could be if the
 programme ever reached four dimensions.  The MZ and AD theorems engage
@@ -822,7 +799,6 @@ color-neutral.  B-2 is not a gap in Paper~3; it is the centralizer
 theorem asserting itself on the electroweak sector, and it forces
 $\mathrm{SU}(2)_L$ off the $\mathrm{Cl}(6)$ bivectors and onto the
 $\mathbb{H}$ factor exactly as Furey's construction places it.
-% [ESTABLISHED reasoning -- Stance 2 as forced and justified fallback]
 
 The two surviving paths are not symmetric.  Path~A (beta) is genuinely
 open: no mechanism is in hand for producing an $S$-matrix-free emergent
@@ -936,18 +912,42 @@ choice.
 %======================================================================
 % ACKNOWLEDGMENTS
 %======================================================================
-\section*{Acknowledgments}
-
+\begin{acknowledgments}
 Computations performed using scripts
 \texttt{cl6\_su3\_centralizer\_check.py},
 \texttt{cl6\_spatial\_direction\_\allowbreak carving.py}, and
 \texttt{cl6\_H\_spatial\_route\_check.py}, generated and verified in the
-TMFT Program research sessions (June~2026).
+TMFT Program research sessions (June~2026).  Claude (Anthropic) was used
+for AI-assisted copy editing of the manuscript text.  All scientific
+content, derivations, and conclusions are the sole intellectual
+contribution of the author.
+\end{acknowledgments}
+
+%======================================================================
+% AUTHOR DECLARATIONS
+%======================================================================
+\section*{Conflict of Interest}
+
+The author has no conflicts to disclose.
+
+\section*{Author Contributions}
+
+\textbf{Todd M.\ Firestone:} Conceptualization (lead); Formal analysis
+(lead); Investigation (lead); Methodology (lead); Writing -- original
+draft (lead); Writing -- review and editing (lead).
+
+%======================================================================
+% DATA AVAILABILITY
+%======================================================================
+\section*{Data Availability Statement}
+
+Data sharing is not applicable to this article as no new data were
+created or analyzed in this study.
 
 %======================================================================
 % REFERENCES
 %======================================================================
-\bibliographystyle{plainnat}
+\bibliographystyle{apsrev4-2}
 \bibliography{four_prong_obstruction}
 
 \end{document}
